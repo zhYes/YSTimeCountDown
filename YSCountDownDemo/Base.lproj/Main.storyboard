@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sbC-rh-V3G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sbC-rh-V3G">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,6 +35,13 @@
                                     <action selector="moreGropClick" destination="BYZ-38-t0r" eventType="touchUpInside" id="FoR-Zu-WHw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnP-1f-qgr">
+                                <rect key="frame" x="156" y="412" width="62" height="30"/>
+                                <state key="normal" title="时间翻转"/>
+                                <connections>
+                                    <action selector="timeBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gdW-y7-fZk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -42,6 +49,8 @@
                             <constraint firstItem="l6K-Md-VFt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="CDx-ud-k0s"/>
                             <constraint firstItem="GZL-Nc-Yrn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="apY-PY-wjR"/>
                             <constraint firstItem="GZL-Nc-Yrn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="i3p-a9-5u6"/>
+                            <constraint firstItem="gnP-1f-qgr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lmw-k4-khf"/>
+                            <constraint firstItem="gnP-1f-qgr" firstAttribute="top" secondItem="GZL-Nc-Yrn" secondAttribute="bottom" constant="63.5" id="s9C-dn-spS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B05-n7-vIL"/>

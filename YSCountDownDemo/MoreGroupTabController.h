@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreGroupTabController : UITableViewController
-
+@property BOOL isPlusTime;
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface OneSectionTabController : UITableViewController
-
+@property BOOL isPlusTime;
 @end

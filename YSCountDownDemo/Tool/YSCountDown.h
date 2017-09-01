@@ -21,4 +21,6 @@
 
 - (instancetype)initWith :(UITableView*)tableView :(NSArray*)dataList;
 
+@property (nonatomic,assign)BOOL isPlusTime;
+
 @end

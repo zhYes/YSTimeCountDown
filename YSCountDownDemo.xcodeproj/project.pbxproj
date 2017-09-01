@@ -484,6 +484,7 @@
 				EA8462031EA9E8B70017B8C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

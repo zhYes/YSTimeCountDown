@@ -29,6 +29,8 @@
     
     /// 1.初始化 传入当前视图和数据数组
     countDown = [[YSCountDown alloc] initWith:self.tableView :self.dataListGroup];
+    countDown.isPlusTime = self.isPlusTime;
+    
 }
 
 - (void)dealloc {
@@ -63,12 +65,15 @@
     moreSectionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"moreSection"];
     cell.subTitleLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     
-    
     /// 3.绑定tag
     cell.tag = indexPath.section * 1000 + indexPath.row;
     cell.endTimeLabel.tag = 1314;
     cell.endTimeLabel.text = [countDown countDownWithPER_SEC:indexPath];
-    
+    if (_isPlusTime) {
+        cell.endTimeLabel.textColor = [UIColor whiteColor];
+        cell.subTitleLabel.textColor = [UIColor whiteColor];
+        cell.contentView.backgroundColor = [UIColor blackColor];
+    }
     
     return cell;
 }
@@ -79,17 +84,30 @@
     
     NSMutableArray * nmArr;
     if (_dataListGroup == nil) {
-        nmArr = [NSMutableArray array];
         _dataListGroup = [NSArray array];
+        
+        nmArr = [NSMutableArray array];
         NSArray *arr = [NSArray array];
-        for (int i = 0; i < 50; i ++) {
-            arr = @[@"1591881249", @"1496881148",@"1596889947",@"1596881346",@"1596881445",@"1596881524",@"1496881623",@"1486881722",@"1586991027",@"1586994825",@"1586990921",@"1581699702"
-                    ];
+        NSDate * datenow = [NSDate date];
+        NSString*timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+        NSInteger nowInteger = [timeSp integerValue];
+        NSMutableArray * groupArr = [NSMutableArray array];
+        for (int i = 0; i<30; i ++) {
+            NSString *str2;
+            if (_isPlusTime) {
+            str2 = [NSString stringWithFormat:@"%zd",nowInteger - arc4random()%50 ];
+                self.tableView.backgroundColor = [UIColor blackColor];
+            }else {
+                str2 = [NSString stringWithFormat:@"%zd",nowInteger + arc4random()%500 ];
+            }
             
-            [nmArr insertObject:arr atIndex:0];
+            arr = @[str2];
+            [nmArr addObjectsFromArray:arr];
+            [groupArr insertObject:nmArr atIndex:0];
         }
-        _dataListGroup = nmArr.copy;
+        _dataListGroup = groupArr.copy;
     }
+    
     return _dataListGroup;
 }
 

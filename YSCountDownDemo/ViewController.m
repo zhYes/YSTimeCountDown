@@ -14,20 +14,33 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    BOOL isPlusTime;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 
 - (IBAction)oneGroupClick {
-    [self.navigationController pushViewController:[OneSectionTabController new] animated:YES];
+    OneSectionTabController * one = [OneSectionTabController new];
+    one.isPlusTime = isPlusTime;
+    [self.navigationController pushViewController:one animated:YES];
 }
 
 - (IBAction)moreGropClick {
-    [self.navigationController pushViewController:[MoreGroupTabController new] animated:YES];
+    MoreGroupTabController * group = [MoreGroupTabController new];
+    group.isPlusTime = isPlusTime;
+    [self.navigationController pushViewController:group animated:YES];
+}
+- (IBAction)timeBack:(id)sender {
+
+    isPlusTime = isPlusTime==0?1:0;
+    
+    self.view.backgroundColor = (self.view.backgroundColor == [UIColor whiteColor])?[UIColor blackColor]:[UIColor whiteColor];
+    self.navigationController.navigationBar.subviews[0].alpha = self.navigationController.navigationBar.subviews[0].alpha ==0 ? 1 : 0;
 }
 
 @end

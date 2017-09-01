@@ -30,7 +30,7 @@
     
     /// 1.初始化 传入当前视图和数据数组
     countDown = [[YSCountDown alloc] initWith:self.tableView :self.dataList];
-    
+    countDown.isPlusTime = self.isPlusTime;
 }
 
 - (void)dealloc {
@@ -49,9 +49,25 @@
     cell.tag = indexPath.row;
     cell.endTimeLabel.tag = 1314;
     cell.endTimeLabel.text = [countDown countDownWithPER_SEC:indexPath];
-    
+    if (_isPlusTime) {
+        cell.endTimeLabel.textColor = [UIColor whiteColor];
+        cell.subTitleLabel.textColor = [UIColor whiteColor];
+        cell.contentView.backgroundColor = [UIColor blackColor];
+    }
     
     cell.subTitleLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    
+    /*
+    NSDate * datenow = [NSDate date];
+    NSString*timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+    NSTimeZone*zone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    NSInteger interval = [zone secondsFromGMTForDate:datenow];
+    NSDate*localeDate = [datenow dateByAddingTimeInterval:interval];
+    NSString*timeSpp = [NSString stringWithFormat:@"%f", [localeDate timeIntervalSince1970]];
+    NSLog(@"%@",timeSp);
+    NSLog(@"%@",timeSpp);
+    */
+    
     return cell;
 }
 
@@ -60,25 +76,52 @@
 
 
 
-///  懒加载假数据
+///  假数据
 - (NSArray *)dataList {
-    
-    NSMutableArray * nmArr;
-    if (_dataList == nil) {
-        _dataList = [NSArray array];
-        
-        nmArr = [NSMutableArray array];
-        NSArray *arr = [NSArray array];
-        
-        for (int i = 0; i < 50; i ++) {
-            arr = @[@"1591881249", @"1496881149",@"1596889949",@"1596881349",@"1596881449",@"1596881529",
-                    @"1496881629",@"1486881729",@"1586991029",@"1586994829",@"1586990929",@"1581699702"
-                    ];
-            [nmArr addObjectsFromArray:arr];
+    if (_isPlusTime) {
+        NSMutableArray * nmArr;
+        if (_dataList == nil) {
+            _dataList = [NSArray array];
+            
+            nmArr = [NSMutableArray array];
+            NSArray *arr = [NSArray array];
+            NSDate * datenow = [NSDate date];
+            NSString*timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+            NSInteger nowInteger = [timeSp integerValue];
+            for (int i = 0; i < 50; i ++) {
+                NSString *str = [NSString stringWithFormat:@"%zd",nowInteger - arc4random()%100000  ];
+                NSString *str1 = [NSString stringWithFormat:@"%zd",nowInteger - arc4random()%1000 ];
+                NSString *str2 = [NSString stringWithFormat:@"%zd",nowInteger + arc4random()%50 ];
+                arr = @[str,str1,str2];
+                [nmArr addObjectsFromArray:arr];
+            }
+            _dataList = nmArr.copy;
         }
-        _dataList = nmArr.copy;
+        self.tableView.backgroundColor = [UIColor blackColor];
+        return _dataList;
+
+    }else {
+        
+        NSMutableArray * nmArr;
+        if (_dataList == nil) {
+            _dataList = [NSArray array];
+            
+            nmArr = [NSMutableArray array];
+            NSArray *arr = [NSArray array];
+            NSDate * datenow = [NSDate date];
+            NSString*timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+            NSInteger nowInteger = [timeSp integerValue];
+            for (int i = 0; i < 50; i ++) {
+                NSString *str = [NSString stringWithFormat:@"%zd",arc4random()%100000 + nowInteger];
+                NSString *str1 = [NSString stringWithFormat:@"%zd",arc4random()%1000 + nowInteger];
+                NSString *str2 = [NSString stringWithFormat:@"%zd",arc4random()%100 + nowInteger];
+                arr = @[str,str1,str2];
+                [nmArr addObjectsFromArray:arr];
+            }
+            _dataList = nmArr.copy;
+        }
+        return _dataList;
     }
-    return _dataList;
 }
 
 

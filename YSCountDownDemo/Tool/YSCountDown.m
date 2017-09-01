@@ -164,13 +164,30 @@
         secondsStr = [NSString stringWithFormat:@"0%d", seconds];
     else
         secondsStr = [NSString stringWithFormat:@"%d",seconds];
-    if (hours<=0&&minutes<=0&&seconds<=0) {
-        return @"活动已经结束！";
+    
+    
+    if (_isPlusTime) {
+        ///////////////////新增
+        if (hours>=0&&minutes>=0&&seconds>=0) {
+            return @"活动未开始！";
+        }
+        hours = -hours;
+        minutes = -minutes;
+        seconds = - seconds;
+        ///////////////////新增
+    }else {
+        if (hours<=0&&minutes<=0&&seconds<=0) {
+                    return @"活动已经结束！";
+        }
     }
+    
+    
     if (days) {
-        return [NSString stringWithFormat:@"%@天 %@小时 %@分 %@秒", dayStr,hoursStr, minutesStr,secondsStr];
+//        return [NSString stringWithFormat:@"%@天 %@小时 %@分 %@秒", dayStr,hoursStr, minutesStr,secondsStr];
+        return [NSString stringWithFormat:@"%zd天 %zd小时 %zd分 %zd秒", days,hours,minutes,seconds];
     }
-    return [NSString stringWithFormat:@"%@小时 %@分 %@秒",hoursStr , minutesStr,secondsStr];
+//    return [NSString stringWithFormat:@"%@小时 %@分 %@秒",hoursStr , minutesStr,secondsStr];
+    return [NSString stringWithFormat:@"%zd小时 %zd分 %zd秒",hours , minutes,seconds];
 }
 
 
