@@ -5,7 +5,7 @@
 下载地址: [https://github.com/zhYes/YSTimeCountDown](https://github.com/zhYes/YSTimeCountDown)
 ```
 
-![Facai - 公司萌宠](http://upload-images.jianshu.io/upload_images/1914107-0cf3c8b4b666ea8d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 >//2018年03月20日09:48:01更新:
 //2018年03月20日09:48:01更新:
@@ -175,7 +175,7 @@ NStimer是在RunLoop的基础上执行的，然而RunLoop是在GCD基础上实�
 }
 ```
 > 最后一段常规代码: 销毁 👆
-![IMG_2629](https://user-images.githubusercontent.com/19343447/153402321-38c6f9af-1124-4766-8447-af43b84e30ef.PNG)
+<!-- ![IMG_2629](https://user-images.githubusercontent.com/19343447/153402321-38c6f9af-1124-4766-8447-af43b84e30ef.PNG) -->
 
 ![改变本地时间依然正确演示](http://upload-images.jianshu.io/upload_images/1914107-f25ebb99f13f806c.gif?imageMogr2/auto-orient/strip)
 
