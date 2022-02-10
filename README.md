@@ -179,6 +179,6 @@ NStimer是在RunLoop的基础上执行的，然而RunLoop是在GCD基础上实�
 
 ![改变本地时间依然正确演示](http://upload-images.jianshu.io/upload_images/1914107-f25ebb99f13f806c.gif?imageMogr2/auto-orient/strip)
 
-=========  任何其他问题,欢迎留言,愿与你一起学习😁=====
+=========  任何其他问题,欢迎留言,愿与你一起学习😁欢迎打赏，动力来源=====
 
 ![动力来源.PNG](https://upload-images.jianshu.io/upload_images/1914107-7c77c7528aa4364e.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
