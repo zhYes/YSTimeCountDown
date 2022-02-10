@@ -1,6 +1,6 @@
 > 传送门:
 ```
-[效果展示:]( http://www.jianshu.com/p/3c49b44e45b4)
+[效果展示:]（http://www.jianshu.com/p/3c49b44e45b4）
 如何使用: [http://www.jianshu.com/p/5b4e0286658a](http://www.jianshu.com/p/5b4e0286658a)
 下载地址: [https://github.com/zhYes/YSTimeCountDown](https://github.com/zhYes/YSTimeCountDown)
 ```
